@@ -1,14 +1,57 @@
-         ___        ______     ____ _                 _  ___  
-        / \ \      / / ___|   / ___| | ___  _   _  __| |/ _ \ 
-       / _ \ \ /\ / /\___ \  | |   | |/ _ \| | | |/ _` | (_) |
-      / ___ \ V  V /  ___) | | |___| | (_) | |_| | (_| |\__, |
-     /_/   \_\_/\_/  |____/   \____|_|\___/ \__,_|\__,_|  /_/ 
- ----------------------------------------------------------------- 
+# Revu
+
+This project...
+
+## Demo
+
+Click [here](https://revu-webapp.herokuapp.com/) for a demo...
+
+## UX
+
+The functional requirements based on these cases are:
+
+### Wireframes:
+![Desktop Site Wireframe]()
+
+![Mobile Site Wireframe]()
+
+## Technologies
+1. Python
+2. Flask
+3. MongoDB
+4. HTML
+
+## Features
+
+### Existing Features
 
 
-Hi there! Welcome to AWS Cloud9!
+### Features Left to Implement
 
-To get started, create some files, play with the terminal,
-or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
 
-Happy coding!
+## Testing
+
+### Code Validation:
+
+
+### UX Testing:
+
+
+## Deployment
+Github was used for version control.
+It is deployed via Heroku
+
+The live site can be found [here](https://revu-webapp.herokuapp.com/).
+
+## Credits
+
+### Content
+
+
+### Media
+
+
+### Acknowledgements
+
+
+This site is for educational purposes.

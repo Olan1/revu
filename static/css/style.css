@@ -1,7 +1,14 @@
 /*************** general ***************/
 
+html {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     background-color: #fafafa;
+    height: 100%;
+    margin: 0;
 }
 
 .hr-1 {
@@ -16,14 +23,39 @@ a {
     margin: 1rem;
 }
 
+.main-body {
+    min-height: 93vh;
+    margin-bottom: -150px;
+}
+
+.btn,
+.btn-large {
+    background-color: rgb(53, 168, 83);
+}
+
+.btn:hover,
+.btn-large:hover {
+    background-color: rgb(33, 148, 63);
+}
+
+.btn:focus,
+.btn-large:focus {
+    background-color: rgb(23, 138, 53);
+}
+
+.text-grey {
+    color: rgb(109, 106, 106);
+}
+
 /*************** Navbar ***************/
 
 nav {
     background-color: rgb(53, 168, 83);
+    height: 7vh;
 }
 
 #sidenav-overlay {
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
 }
 
 #nav-icon {
@@ -35,6 +67,7 @@ nav {
 
 .page-footer {
     background-color: #fafafa;
+    height: 150px;
 }
 
 #top-footer {
@@ -66,6 +99,12 @@ nav {
 
 .section-text p {
     font-size: 1.6rem;
+}
+
+/*************** Forms ***************/
+
+#form {
+    padding-top: 15%;
 }
 
 /*************** Media Queries ***************/

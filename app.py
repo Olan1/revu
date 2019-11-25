@@ -22,6 +22,11 @@ def user_agreement():
     return render_template('terms.html')
     
     
+@app.route('/sign_in')
+def sign_in():
+    return render_template('signin.html')
+    
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

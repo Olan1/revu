@@ -9,6 +9,32 @@ nav {
     font-size: 2.1rem;
 }
 
+/*************** Footer ***************/
+
+.page-footer {
+    background-color: #f9f9f0;
+}
+
+#top-footer {
+    background-color: #f9f9f0;
+}
+
+.page-footer .footer-copyright {
+    background-color: rgba(109, 106, 106, 1);
+}
+
+#footer-logo {
+    color: rgb(109, 106, 106);
+    font-size: 2.1rem;
+}
+
+#footer-icon {
+    color: rgb(109, 106, 106);
+    font-size: 2.1rem;
+    position: relative;
+    top: 4px;
+}
+
 /*************** Media Queries ***************/
 
 @media only screen and (min-width: 769px) {

@@ -1,0 +1,19 @@
+/*************** Navbar ***************/
+
+nav {
+    background-color: rgb(53, 168, 83);
+}
+
+#nav-icon {
+    margin: 0;
+    font-size: 2.1rem;
+}
+
+/*************** Media Queries ***************/
+
+@media only screen and (min-width: 769px) {
+    nav {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

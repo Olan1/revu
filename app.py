@@ -12,9 +12,9 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.route('/get_user')
-def get_user():
-    return render_template('index.html', user=mongo.db.users.find())
+@app.route('/home')
+def home():
+    return render_template('index.html', reviews=mongo.db.reviews.find())
     
     
 if __name__ == '__main__':

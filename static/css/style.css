@@ -1,3 +1,21 @@
+/*************** general ***************/
+
+body {
+    background-color: #fafafa;
+}
+
+.hr-1 {
+    width: 25%;
+}
+
+a {
+    color: inherit;
+}
+
+.divider {
+    margin: 1rem;
+}
+
 /*************** Navbar ***************/
 
 nav {
@@ -12,11 +30,11 @@ nav {
 /*************** Footer ***************/
 
 .page-footer {
-    background-color: #f9f9f0;
+    background-color: #fafafa;
 }
 
 #top-footer {
-    background-color: #f9f9f0;
+    background-color: #fafafa;
 }
 
 .page-footer .footer-copyright {
@@ -35,11 +53,25 @@ nav {
     top: 4px;
 }
 
+/*************** index.html ***************/
+
+.section-img {
+    max-width: 95%;
+}
+
+.section-text p {
+    font-size: 1.6rem;
+}
+
 /*************** Media Queries ***************/
 
 @media only screen and (min-width: 769px) {
     nav {
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+
+    .section-img {
+        max-height: 33.3vh;
     }
 }

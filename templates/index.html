@@ -3,26 +3,28 @@
 {% block active1 %} active {% endblock %}
 {% block active5 %} active {% endblock %}
 
+{% block searchbar %}<input type="text" id="searchBar" placeholder="Search for..." class="center-align">{% endblock %}
+
 {% block content %}
 {% for review in reviews %}
 
-<a href="{{ url_for('home') }}"><!------------------>
+<a class="outer" href="{{ url_for('home') }}"><!------------------>
     <div class="section center-align">
         <div class="row">
             <div class="col s12 m4">
                 <img class="section-img" src="{{ review.img_url }}"></img>
             </div>
             <div class="col s12 m8 section-text">
-                <h3>{{ review.title }}</h3>
+                <h3 class="inner">{{ review.title }}</h3>
                 <hr class="hr-1">
-                <p>Released {{ review.released }}</p>
-                <p>Directed by {{ review.director }}</p>
-                <p>REVU by {{ review.author }}</p>
+                <p class="inner">Released {{ review.released }}</p>
+                <p class="inner">Directed by {{ review.director }}</p>
+                <p class="inner">REVU by {{ review.author }}</p>
             </div>
         </div>
     </div>
+    <div class="divider"></div>
 </a>
-<div class="divider"></div>
 
 {% endfor %}
 {% endblock %}

@@ -47,6 +47,10 @@ a {
     color: rgb(109, 106, 106);
 }
 
+.mt-10 {
+    margin-top: 10vh;
+}
+
 /*************** Navbar ***************/
 
 nav {
@@ -61,6 +65,10 @@ nav {
 #nav-icon {
     margin: 0;
     font-size: 2.1rem;
+}
+
+nav .active {
+    max-height: 7vh;
 }
 
 /*************** Footer ***************/
@@ -99,6 +107,19 @@ nav {
 
 .section-text p {
     font-size: 1.6rem;
+}
+
+#searchBar {
+    margin-top: 5vh;
+    font-size: 2rem;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+#searchBar:hover {
+    font-size: 2.2rem;
 }
 
 /*************** Forms ***************/

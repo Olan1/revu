@@ -47,15 +47,22 @@ a {
     color: rgb(109, 106, 106);
 }
 
+.text-green {
+    color: #35a853;
+}
+
 .mt-10 {
     margin-top: 10vh;
+}
+
+.mb-5 {
+    margin-bottom: 50px;
 }
 
 /*************** Navbar ***************/
 
 nav {
     background-color: rgb(53, 168, 83);
-    height: 7vh;
 }
 
 #sidenav-overlay {
@@ -65,10 +72,6 @@ nav {
 #nav-icon {
     margin: 0;
     font-size: 2.1rem;
-}
-
-nav .active {
-    max-height: 7vh;
 }
 
 /*************** Footer ***************/
@@ -120,6 +123,26 @@ nav .active {
 
 #searchBar:hover {
     font-size: 2.2rem;
+}
+
+/*************** REVU Page ***************/
+
+.revu-img {
+    min-height: 65vh;
+    max-height: 90vh;
+    margin: auto;
+}
+
+.spec-list {
+    line-height: 4rem;
+    font-size: 2rem;
+    letter-spacing: 4px;
+}
+
+.revu-text {
+    line-height: 2rem;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
 }
 
 /*************** Forms ***************/

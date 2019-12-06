@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ review.title }} {% endblock %}
+
+{% block active1 %} {% endblock %}
+{% block active2 %} {% endblock %}
+{% block active3 %} {% endblock %}
+{% block active4 %} {% endblock %}
+{% block active5 %} {% endblock %}
+{% block active6 %} {% endblock %}
+{% block active7 %} {% endblock %}
+{% block active8 %} {% endblock %}
+
+{% block searchbar %}{% endblock %}
+
+{% block content %}
+
+<h1 class="center-align text-green">{{ review.title }}</h1>
+<hr class="hr-1">
+<h5 class="center-align spec-list">Rated {{ review.rating }} / 5</h5>
+<div class="row center-align">
+    <div class="col s12">
+        <img class="revu-img" src="{{ review.img_url }}"></img>
+    </div>
+    <div class="col s12 m10 push-m1 l8 push-l2">
+        <h3 class="text-green">Quick Facts:</h3>
+        <hr class="hr-1">
+        <ul class="spec-list">
+            <li>Released in {{ review.released }}</li>
+            <li>Directed by {{ review.director }}</li>
+            <li>Written by {{ review.writers }}</li>
+            <li>Produced by {{ review.producer }}</li>
+            <li>Starring {{ review.starring }}</li>
+            <li>{{ review.run_time }} minutes long</li>
+            <li>{{ review.genre }} genre(s)</li>
+            <li>Budget was ${{ review.budget }}</li>
+            <li>Earned over ${{ review.earnings }}</li>
+        </ul>
+    </div>
+</div>
+<!-- Plot -->
+<div class="row">
+    <div class="col-12">
+        <h3 class="center-align text-green">Plot:</h3>
+        <hr class="hr-1">
+        <p class="left-align revu-text">{{ review.plot }}</p>
+    </div>
+</div>
+<!-- Review -->
+<div class="row">
+    <div class="col-12">
+        <h3 class="center-align text-green">Review:</h3>
+        <hr class="hr-1">
+        <p class="left-align revu-text">{{ review.review }}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h5 class="center-align text-green mb-5">Reviewed by {{ review.author }}</h5>
+    </div>
+</div>
+
+{% endblock %}

@@ -24,7 +24,9 @@
                 <a href="{{ url_for('home') }}" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <!-- Navlinks -->
                 <ul class="right hide-on-med-and-down">
-                    <li class="{% block active1 %} {% endblock %}"><a href="{{ url_for('home') }}">Browse</a></li>
+                    <li class="{% block active1 %} {% endblock %}">
+                        <a href="{{ url_for('home') }}">Browse</a>
+                    </li>
                     <li class="{% block active2 %} {% endblock %}">
                         <a href="{{ url_for('home') }}">
                             <!------------------>New REVU</a>
@@ -34,15 +36,13 @@
                             <!------------------>My REVUs</a>
                     </li>
                     <li class="{% block active4 %} {% endblock %}">
-                        <a href="{{ url_for('home') }}">
-                            <!------------------>Sign Out</a>
+                        <a href="{{ url_for('sign_out') }}">Sign Out</a>
                     </li>
                 </ul>
                 <!-- Mobile Navlinks-->
                 <ul class="side-nav" id="mobile-demo">
                     <li class="{% block active5 %} {% endblock %}">
-                        <a href="{{ url_for('home') }}">
-                            <!------------------>Browse</a>
+                        <a href="{{ url_for('home') }}">Browse</a>
                     </li>
                     <li class="{% block active6 %} {% endblock %}">
                         <a href="{{ url_for('home') }}">
@@ -53,8 +53,7 @@
                             <!------------------>my REVUs</a>
                     </li>
                     <li class="{% block active8 %} {% endblock %}">
-                        <a href="{{ url_for('home') }}">
-                            <!------------------>Sign Out</a>
+                        <a href="{{ url_for('sign_out') }}">Sign Out</a>
                     </li>
                 </ul>
             </div>

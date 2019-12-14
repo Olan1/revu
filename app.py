@@ -23,15 +23,23 @@ def home():
     
     
 # Sign in
-@app.route('/sign_in')
+@app.route('/sign_in', methods=['POST'])
 def sign_in():
-    return render_template('signin.html')
+    users = mongo.db.users
+    login_user = users.find_one({ 'email': request.form['email']})
+    
+    if login_user:
+        if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
+            session['user_email'] = request.form['email']
+            return redirect(url_for('home'))
+    
+    return 'Invalid username/password'
 
  
 # Sign up
-@app.route('/sign_up', methods=["POST", "GET"])
+@app.route('/sign_up', methods=['POST', 'GET'])
 def sign_up():
-    if request.method == "POST":
+    if request.method == 'POST':
         users = mongo.db.users
         existing_email = users.find_one({'email': request.form['email']})
         
@@ -46,6 +54,13 @@ def sign_up():
         return "That email is already registered to an account"
 
     return render_template('signup.html')
+    
+    
+# Sign Out
+@app.route('/sign_out')
+def sign_out():
+    session.clear()
+    return redirect('home')
 
 
 # User agreement

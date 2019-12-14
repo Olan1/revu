@@ -1,12 +1,14 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import bcrypt
 
 app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
+app.secret_key = os.environ.get('secret_key')
 
 mongo = PyMongo(app)
 
@@ -15,15 +17,11 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('index.html', reviews=mongo.db.reviews.find())
-
-
-# User agreement
-@app.route('/user_agreement')
-def user_agreement():
-    return render_template('terms.html')
-
-
+    if 'user_email' in session:
+        return render_template('index.html', reviews=mongo.db.reviews.find())
+    return render_template('signin.html')
+    
+    
 # Sign in
 @app.route('/sign_in')
 def sign_in():
@@ -31,9 +29,29 @@ def sign_in():
 
  
 # Sign up
-@app.route('/sign_up')
+@app.route('/sign_up', methods=["POST", "GET"])
 def sign_up():
+    if request.method == "POST":
+        users = mongo.db.users
+        existing_email = users.find_one({'email': request.form['email']})
+        
+        if existing_email is None:
+            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({'first': request.form['first_name'],
+                            'last': request.form['last_name'],
+                            'email': request.form['email'],
+                            'password': hashpass})
+            session['user_email'] = request.form['email']
+            return redirect(url_for('home'))
+        return "That email is already registered to an account"
+
     return render_template('signup.html')
+
+
+# User agreement
+@app.route('/user_agreement')
+def user_agreement():
+    return render_template('terms.html')
     
     
 # View REVU

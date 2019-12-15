@@ -48,6 +48,7 @@ function search() {
 function myModal() {
     // Modal appears
     $("#myModal").fadeIn(500);
+    $(".modal-content").fadeIn(500);
     // Close modal on "X" click
     $(".closeModal").click(function() {
         closeModal();

@@ -67,6 +67,11 @@ a {
     cursor: pointer;
 }
 
+.side-nav li>a {
+    color: #35a853;
+    z-index: 10000;
+}
+
 /*************** Navbar ***************/
 
 nav {
@@ -74,7 +79,7 @@ nav {
 }
 
 #sidenav-overlay {
-    background-color: rgba(0, 0, 0, 0);
+    display: none;
 }
 
 #nav-icon {

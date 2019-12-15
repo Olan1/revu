@@ -6,6 +6,11 @@ $("#searchBar").keyup(() => {
     search();
 });
 
+// Call Modal
+$("#delete-ac").click(() => {
+    myModal();
+});
+
 // Search Bar function
 function search() {
     // Get search bar input value
@@ -37,4 +42,23 @@ function search() {
             x[i].style.display = "block";
         }
     }
+}
+
+// Modal Function
+function myModal() {
+    // Modal appears
+    $("#myModal").fadeIn(500);
+    // Close modal on "X" click
+    $(".closeModal").click(function() {
+        closeModal();
+    });
+    // Close Modal on "No" click
+    $("#cancel").click(function() {
+        closeModal();
+    });
+}
+
+// Close modal function
+function closeModal() {
+    $("#myModal").fadeOut(500);
 }

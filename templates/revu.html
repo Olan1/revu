@@ -23,18 +23,16 @@
         <img class="revu-img" src="{{ review.img_url }}"></img>
     </div>
     <div class="col s12 m10 push-m1 l8 push-l2">
-        <h3 class="text-green">Quick Facts:</h3>
-        <hr class="hr-1">
         <ul class="spec-list">
-            <li>Released in {{ review.released }}</li>
-            <li>Directed by {{ review.director }}</li>
-            <li>Written by {{ review.writers }}</li>
-            <li>Produced by {{ review.producer }}</li>
-            <li>Starring {{ review.starring }}</li>
-            <li>{{ review.run_time }} minutes long</li>
-            <li>{{ review.genre }} genre(s)</li>
-            <li>Budget was ${{ review.budget }}</li>
-            <li>Earned over ${{ review.earnings }}</li>
+            <li><span class="text-green d-inline-block">Released:</span>{{ review.released }}</li>
+            <li><span class="text-green d-inline-block">Director:</span>{{ review.director }}</li>
+            <li><span class="text-green d-inline-block">Writer:</span>{{ review.writers }}</li>
+            <li><span class="text-green d-inline-block">Producer:</span>{{ review.producer }}</li>
+            <li><span class="text-green d-inline-block">Starring:</span>{{ review.starring }}</li>
+            <li><span class="text-green d-inline-block">Run Time:</span>{{ review.run_time }} minutes</li>
+            <li><span class="text-green d-inline-block">Genre(s):</span>{{ review.genre }}</li>
+            <li><span class="text-green d-inline-block">Budget:</span>${{ review.budget }}</li>
+            <li><span class="text-green d-inline-block">Earned:</span>${{ review.earnings }}</li>
         </ul>
     </div>
 </div>

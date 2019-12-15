@@ -51,7 +51,7 @@ def sign_up():
                             'password': hashpass})
             session['user_email'] = request.form['email']
             return redirect(url_for('home'))
-        return "That email is already registered to an account"
+        return "That email is already registered to an account" ################
 
     return render_template('signup.html')
     
@@ -59,6 +59,14 @@ def sign_up():
 # Sign Out
 @app.route('/sign_out')
 def sign_out():
+    session.clear()
+    return redirect('home')
+    
+    
+# Delete Account
+@app.route('/delete_ac')
+def delete_ac():
+    mongo.db.users.remove({'email': session['user_email']})
     session.clear()
     return redirect('home')
 

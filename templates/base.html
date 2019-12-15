@@ -63,6 +63,18 @@
     <!-- Content -->
     <div class="container main-body">
         {% block searchbar %} {% endblock %} {% block content %} {% endblock %}
+        <!-- Modal -->
+        <div id="myModal" class="myModal">
+            <div class="modal-content">
+                <span class="closeModal">&times;</span>
+                <h5>Are you sure?</h5>
+                <div class="row">
+                    <a href="{{ url_for('delete_ac') }}" id="delete" class="waves-effect waves-light btn modal-btn">Yes</a>
+                    <span id="cancel" class="waves-effect waves-light btn modal-btn">No</span>
+                </div>
+            </div>
+        </div>
+        <!-- /Modal -->
     </div>
 
     <!-- Footer -->
@@ -78,15 +90,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col s3">
-                        <a class="grey-text text-lighten-4" href="#!">
-                            <!------------------>Delete account</a>
+                        <span id="delete-ac" class="grey-text text-lighten-4">Delete account</span>
                     </div>
                     <div class="col s6">
                         © 2019 REVU
                     </div>
                     <div class="col s3">
-                        <a class="grey-text text-lighten-4" href="{{ url_for('user_agreement') }}" target="_blank">
-                            <!------------------>User agreement</a>
+                        <a class="grey-text text-lighten-4" href="{{ url_for('user_agreement') }}" target="_blank">User agreement</a>
                     </div>
                 </div>
             </div>

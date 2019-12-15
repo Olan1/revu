@@ -59,6 +59,14 @@ a {
     margin-bottom: 50px;
 }
 
+.d-inline-block {
+    display: inline-block;
+}
+
+#delete-ac:hover {
+    cursor: pointer;
+}
+
 /*************** Navbar ***************/
 
 nav {
@@ -125,7 +133,7 @@ nav {
     font-size: 2.2rem;
 }
 
-/*************** REVU Page ***************/
+/*************** revu.html ***************/
 
 .revu-img {
     min-height: 65vh;
@@ -139,10 +147,62 @@ nav {
     letter-spacing: 4px;
 }
 
+.spec-list .d-inline-block {
+    width: 100%;
+    font-weight: 500;
+    margin-top: 50px;
+}
+
 .revu-text {
     line-height: 2rem;
     font-size: 1.4rem;
     letter-spacing: 2px;
+}
+
+/*************** Modal ***************/
+
+#myModal {
+    display: none;
+}
+
+#myModal .row {
+    margin: 5%;
+}
+
+.modal-content {
+    border-radius: 4px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    width: 300px;
+    height: 150px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    text-align: center;
+    padding-bottom: 15%;
+}
+
+.closeModal {
+    margin-left: 85%;
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    width: 30px;
+    transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+}
+
+.closeModal:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+#delete {
+    margin-right: 20px;
 }
 
 /*************** Forms ***************/

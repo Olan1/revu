@@ -81,7 +81,36 @@ def user_agreement():
 @app.route('/view_revu/<review_id>')
 def view_revu(review_id):
     the_revu =  mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
-    return render_template('revu.html', review=the_revu)    
+    return render_template('revu.html', review=the_revu)
+    
+    
+# New REVU
+@app.route('/new_revu', methods=['POST', 'GET'])
+def new_revu():
+    if request.method == 'POST':
+        user = mongo.db.users.find_one({'email': session['user_email']})
+        first_name = user['first']
+        last_name = user['last']
+        author = '{} {}'.format(first_name, last_name)
+        reviews = mongo.db.reviews
+        reviews.insert({'title': request.form['title'],
+                        'rating': request.form['rating'],
+                        'img_url': request.form['img-url'],
+                        'plot': request.form['plot'],
+                        'review': request.form['review'],
+                        'released': request.form['released'],
+                        'director': request.form['director'],
+                        'writers': request.form['writers'],
+                        'producer': request.form['producer'],
+                        'starring': request.form['starring'],
+                        'run_time': request.form['run-time'],
+                        'genre': request.form['genre'],
+                        'budget': request.form['budget'],
+                        'earnings': request.form['earned'],
+                        'author': author})
+        return redirect(url_for('home'))
+    
+    return render_template('newrevu.html')
     
     
 if __name__ == '__main__':

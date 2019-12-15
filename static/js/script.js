@@ -11,6 +11,10 @@ $("#delete-ac").click(() => {
     myModal();
 });
 
+// Initialize MaterializeCSS form text area input
+$('#textarea1').val('New Text');
+$('#textarea1').trigger('autoresize');
+
 // Search Bar function
 function search() {
     // Get search bar input value

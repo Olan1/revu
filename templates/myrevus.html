@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}My REVUs{% endblock %}
+
+{% block active1 %} {% endblock %}
+{% block active2 %} {% endblock %}
+{% block active3 %} active {% endblock %}
+{% block active4 %} {% endblock %}
+{% block active5 %} {% endblock %}
+{% block active6 %} {% endblock %}
+{% block active7 %} active {% endblock %}
+{% block active8 %} {% endblock %}
+
+{% block searchbar %}<input type="text" id="searchBar" placeholder="Search for..." class="center-align">{% endblock %}
+
+{% block content %}
+{% for review in reviews %}
+
+<a class="outer" href="{{ url_for('view_revu', review_id=review._id) }}">
+    <div class="section center-align">
+        <div class="row">
+            <div class="col s12 m4">
+                <img class="section-img" src="{{ review.img_url }}"></img>
+            </div>
+            <div class="col s12 m6 section-text">
+                <h3 class="inner text-green">{{ review.title }}</h3>
+                <hr class="hr-1 text-green">
+                <p class="inner">Released {{ review.released }}</p>
+                <p class="inner">Directed by {{ review.director }}</p>
+                <p class="inner">Rated {{ review.rating }} / 5</p>
+            </div>
+            <div class="col s12 m2 section-text">
+                <span class="waves-effect waves-light btn my-revus-btn">Edit</span>
+                <span class="waves-effect waves-light btn my-revus-btn">Delete</span>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+</a>
+
+{% endfor %}
+{% endblock %}

@@ -164,6 +164,13 @@ nav {
     letter-spacing: 2px;
 }
 
+/*************** myrevus.html ***************/
+
+.my-revus-btn {
+    width: 120px;
+    margin: 40% 0;
+}
+
 /*************** Modal ***************/
 
 #myModal {
@@ -226,5 +233,11 @@ nav {
 
     .section-img {
         max-height: 33.3vh;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .my-revus-btn {
+        margin: 10px;
     }
 }

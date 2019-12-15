@@ -89,9 +89,7 @@ def view_revu(review_id):
 def new_revu():
     if request.method == 'POST':
         user = mongo.db.users.find_one({'email': session['user_email']})
-        first_name = user['first']
-        last_name = user['last']
-        author = '{} {}'.format(first_name, last_name)
+        author = '{} {}'.format(user['first'], user['last'])
         reviews = mongo.db.reviews
         reviews.insert({'title': request.form['title'],
                         'rating': request.form['rating'],
@@ -111,6 +109,17 @@ def new_revu():
         return redirect(url_for('home'))
     
     return render_template('newrevu.html')
+    
+    
+
+# My REVUs
+@app.route('/my_revus')
+def my_revus():
+    user = mongo.db.users.find_one({'email': session['user_email']})
+    author = '{} {}'.format(user['first'], user['last'])
+    the_reviews = mongo.db.reviews.find({'author': author})
+    
+    return render_template('myrevus.html', reviews=the_reviews)
     
     
 if __name__ == '__main__':

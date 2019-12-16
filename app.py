@@ -106,7 +106,7 @@ def new_revu():
                         'budget': request.form['budget'],
                         'earnings': request.form['earned'],
                         'author': author})
-        return redirect(url_for('home'))
+        return redirect(url_for('my_revus'))
     
     return render_template('newrevu.html')
     
@@ -156,6 +156,13 @@ def update_revu(revu_id):
                             'earnings': request.form['earned'],
                             'author': author})
                         
+    return redirect(url_for('my_revus'))
+    
+    
+# Delete REVU
+@app.route('/delete_revu/<revu_id>')
+def delete_revu(revu_id):
+    mongo.db.reviews.remove({'_id': ObjectId(revu_id)})
     return redirect(url_for('my_revus'))
 
 

@@ -72,6 +72,10 @@ a {
     z-index: 10000;
 }
 
+.justify-text {
+    text-align: justify;
+}
+
 /*************** Navbar ***************/
 
 nav {
@@ -141,9 +145,9 @@ nav {
 /*************** revu.html ***************/
 
 .revu-img {
-    min-height: 65vh;
-    max-height: 90vh;
-    margin: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100vh;
 }
 
 .spec-list {
@@ -162,6 +166,13 @@ nav {
     line-height: 2rem;
     font-size: 1.4rem;
     letter-spacing: 2px;
+}
+
+/*************** myrevus.html ***************/
+
+.my-revus-btn {
+    width: 120px;
+    margin: 40% 0;
 }
 
 /*************** Modal ***************/
@@ -226,5 +237,11 @@ nav {
 
     .section-img {
         max-height: 33.3vh;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .my-revus-btn {
+        margin: 10px;
     }
 }

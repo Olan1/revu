@@ -89,9 +89,7 @@ def view_revu(review_id):
 def new_revu():
     if request.method == 'POST':
         user = mongo.db.users.find_one({'email': session['user_email']})
-        first_name = user['first']
-        last_name = user['last']
-        author = '{} {}'.format(first_name, last_name)
+        author = '{} {}'.format(user['first'], user['last'])
         reviews = mongo.db.reviews
         reviews.insert({'title': request.form['title'],
                         'rating': request.form['rating'],
@@ -112,6 +110,55 @@ def new_revu():
     
     return render_template('newrevu.html')
     
+    
+
+# My REVUs
+@app.route('/my_revus')
+def my_revus():
+    user = mongo.db.users.find_one({'email': session['user_email']})
+    author = '{} {}'.format(user['first'], user['last'])
+    the_reviews = mongo.db.reviews.find({'author': author})
+    
+    return render_template('myrevus.html', reviews=the_reviews)
+    
+    
+    
+# Edit REVU
+@app.route('/edit_revu/<revu_id>')
+def edit_revu(revu_id):
+    return render_template('editrevu.html',
+                           review=mongo.db.reviews.find_one({'_id': ObjectId(revu_id)}))
+
+
+
+
+
+# Update REVU
+@app.route('/update_revu/<revu_id>', methods=['POST'])
+def update_revu(revu_id):
+    user = mongo.db.users.find_one({'email': session['user_email']})
+    author = '{} {}'.format(user['first'], user['last'])
+    mongo.db.reviews.update(
+                            {'_id': ObjectId(revu_id)},
+                            {'title': request.form['title'],
+                            'rating': request.form['rating'],
+                            'img_url': request.form['img-url'],
+                            'plot': request.form['plot'],
+                            'review': request.form['review'],
+                            'released': request.form['released'],
+                            'director': request.form['director'],
+                            'writers': request.form['writers'],
+                            'producer': request.form['producer'],
+                            'starring': request.form['starring'],
+                            'run_time': request.form['run-time'],
+                            'genre': request.form['genre'],
+                            'budget': request.form['budget'],
+                            'earnings': request.form['earned'],
+                            'author': author})
+                        
+    return redirect(url_for('my_revus'))
+
+
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

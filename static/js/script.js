@@ -6,9 +6,9 @@ $("#searchBar").keyup(() => {
     search();
 });
 
-// Call Modal
+// Call Delete User Modal
 $("#delete-ac").click(() => {
-    myModal();
+    myModal('#myModal');
 });
 
 // Initialize MaterializeCSS form text area input
@@ -23,7 +23,6 @@ function search() {
     input = input.toLowerCase();
     // Get all li's with class outerLi (users)
     let x = document.getElementsByClassName('outer');
-    let a = document.getElementsByClassName('outer-a');
     let z, i, j;
     // Loop through outerLi's (users)
     for (i = 0; i < x.length; i++) {
@@ -41,32 +40,30 @@ function search() {
         // If z is false, outerLi displayed as none
         if (z === false) {
             x[i].style.display = "none";
-            a[i].style.display = "none";
         }
         // Else if z is true, outerLi displayed as list-item
         else {
             x[i].style.display = "block";
-            a[i].style.display = "block";
         }
     }
 }
 
 // Modal Function
-function myModal() {
+function myModal(modalId) {
     // Modal appears
-    $("#myModal").fadeIn(500);
+    $(modalId).fadeIn(500);
     $(".modal-content").fadeIn(500);
     // Close modal on "X" click
     $(".closeModal").click(function() {
-        closeModal();
+        closeModal(modalId);
     });
     // Close Modal on "No" click
     $("#cancel").click(function() {
-        closeModal();
+        closeModal(modalId);
     });
 }
 
 // Close modal function
-function closeModal() {
-    $("#myModal").fadeOut(500);
+function closeModal(modalId) {
+    $(modalId).fadeOut(500);
 }

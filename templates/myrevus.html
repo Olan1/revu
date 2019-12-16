@@ -16,8 +16,8 @@
 {% block content %}
 {% for review in reviews %}
 
-<a class="outer" href="{{ url_for('view_revu', review_id=review._id) }}">
-    <div class="section center-align">
+<a class="outer-a" href="{{ url_for('view_revu', review_id=review._id) }}">
+    <div class="section center-align outer">
         <div class="row">
             <div class="col s12 m4">
                 <img class="section-img" src="{{ review.img_url }}"></img>
@@ -30,12 +30,12 @@
                 <p class="inner">Rated {{ review.rating }} / 5</p>
             </div>
             <div class="col s12 m2 section-text">
-                <span class="waves-effect waves-light btn my-revus-btn">Edit</span>
-                <span class="waves-effect waves-light btn my-revus-btn">Delete</span>
+                <a href="{{ url_for('edit_revu', revu_id=review._id) }}" class="waves-effect waves-light btn my-revus-btn edit">Edit</a>
+                <a href="{{ url_for('edit_revu', revu_id=review._id) }}" class="waves-effect waves-light btn my-revus-btn delete">Delete</a>
             </div>
         </div>
+        <div class="divider"></div>
     </div>
-    <div class="divider"></div>
 </a>
 
 {% endfor %}

@@ -23,6 +23,7 @@ function search() {
     input = input.toLowerCase();
     // Get all li's with class outerLi (users)
     let x = document.getElementsByClassName('outer');
+    let a = document.getElementsByClassName('outer-a');
     let z, i, j;
     // Loop through outerLi's (users)
     for (i = 0; i < x.length; i++) {
@@ -40,10 +41,12 @@ function search() {
         // If z is false, outerLi displayed as none
         if (z === false) {
             x[i].style.display = "none";
+            a[i].style.display = "none";
         }
         // Else if z is true, outerLi displayed as list-item
         else {
             x[i].style.display = "block";
+            a[i].style.display = "block";
         }
     }
 }

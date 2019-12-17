@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 
+<!-- Page Title -->
 {% block title %}Home{% endblock %}
 
+<!-- Navbar Active Tabs -->
 {% block active1 %} active {% endblock %}
-{% block active2 %} {% endblock %}
-{% block active3 %} {% endblock %}
-{% block active4 %} {% endblock %}
 {% block active5 %} active {% endblock %}
-{% block active6 %} {% endblock %}
-{% block active7 %} {% endblock %}
-{% block active8 %} {% endblock %}
 
+<!-- Searchbar -->
 {% block searchbar %}<input type="text" id="searchBar" placeholder="Search for..." class="center-align">{% endblock %}
 
+<!-- Page Content -->
 {% block content %}
 {% for review in reviews %}
 

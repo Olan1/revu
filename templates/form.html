@@ -16,12 +16,17 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav>
         <div class="nav-wrapper valign-wrapper">
             <a href="{{ url_for('home') }}" class="brand-logo"><i id="nav-icon" class="material-icons">local_movies</i>REVU</a>
         </div>
     </nav>
+    
+    <!-- Main Body -->
     <div class="container main-body">
+        
+        <!-- Flash Messages -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <ul class="center-align flash">
@@ -31,8 +36,10 @@
                 </ul>
             {% endif %}
         {% endwith %}
+        
         <div class="row">
             <form class="col s12">
+                <!-- Form Content -->
                 {% block content %} {% endblock %}
             </form>
         </div>

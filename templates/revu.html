@@ -1,27 +1,21 @@
 {% extends 'base.html' %}
 
+<!-- Page Title -->
 {% block title %} {{ review.title }} {% endblock %}
 
-{% block active1 %} {% endblock %}
-{% block active2 %} {% endblock %}
-{% block active3 %} {% endblock %}
-{% block active4 %} {% endblock %}
-{% block active5 %} {% endblock %}
-{% block active6 %} {% endblock %}
-{% block active7 %} {% endblock %}
-{% block active8 %} {% endblock %}
-
-{% block searchbar %}{% endblock %}
-
+<!-- Page Content -->
 {% block content %}
-
+<!-- Film Title -->
 <h1 class="center-align text-green">{{ review.title }}</h1>
 <hr class="hr-1">
+<!-- Rating -->
 <h5 class="center-align spec-list">Rated {{ review.rating }} / 5</h5>
 <div class="row center-align">
+    <!-- Film Image -->
     <div class="col s12">
         <img class="revu-img" src="{{ review.img_url }}"></img>
     </div>
+    <!-- Film Facts -->
     <div class="col s12 m10 push-m1 l8 push-l2">
         <ul class="spec-list">
             <li><span class="text-green d-inline-block">Released:</span>{{ review.released }}</li>
@@ -52,7 +46,7 @@
         <p class="justify-text revu-text">{{ review.review }}</p>
     </div>
 </div>
-
+<!-- Author -->
 <div class="row">
     <div class="col-12">
         <h5 class="center-align text-green mb-5">Reviewed by {{ review.author }}</h5>

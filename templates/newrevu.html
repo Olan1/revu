@@ -1,40 +1,49 @@
-{% extends 'base.html' %} {% block title %}New REVU{% endblock %} {% block active1 %} {% endblock %} {% block active2 %} active {% endblock %} {% block active3 %} {% endblock %} {% block active4 %} {% endblock %} {% block active5 %} {% endblock %} {%
-block active6 %} active {% endblock %} {% block active7 %} {% endblock %} {% block active8 %} {% endblock %} {% block searchbar %} {% endblock %} {% block content %}
+{% extends 'base.html' %}
+
+<!-- Page Title -->
+{% block title %}New REVU{% endblock %}
+
+<!-- Navbar Active Tabs -->
+{% block active2 %} active {% endblock %}
+{%block active6 %} active {% endblock %}
+
+<!-- Page Content -->
+{% block content %}
 
 <h3 class="text-green center-align">New REVU</h3>
 <div class="divider"></div>
 
 <div class="row center-align">
     <form class="col s12 mb-5">
-        <!-- Title -->
+        <!-- Film Title -->
         <div class="row">
             <div class="input-field col s12">
                 <textarea name="title" class="materialize-textarea" required></textarea>
                 <label for="title">Title</label>
             </div>
         </div>
-        <!-- Rating -->
+        <!-- Film Rating -->
         <div class="row">
             <div class="input-field col s12">
                 <textarea name="rating" class="materialize-textarea" required></textarea>
                 <label for="rating">Rating out of 5</label>
             </div>
         </div>
-        <!-- Image URL -->
+        <!-- Film Image URL -->
         <div class="row">
             <div class="input-field col s12">
                 <textarea name="img-url" class="materialize-textarea" required></textarea>
                 <label for="img-url">Image URL</label>
             </div>
         </div>
-        <!-- Plot -->
+        <!-- Film Plot -->
         <div class="row">
             <div class="input-field col s12">
                 <textarea name="plot" class="materialize-textarea" required></textarea>
                 <label for="plot">Plot</label>
             </div>
         </div>
-        <!-- Review -->
+        <!-- Film Review -->
         <div class="row">
             <div class="input-field col s12">
                 <textarea name="review" class="materialize-textarea" required></textarea>

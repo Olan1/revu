@@ -9,6 +9,11 @@ Users can then edit and delete their work.
 
 Click [here](https://revu-webapp.herokuapp.com/) for a demo...
 
+###### Demo Log In Details:
+email: test1@mail.com
+
+password: 1111
+
 ## UX
 
 The functional requirements for this project are:
@@ -100,6 +105,11 @@ GitHub was used for version control. Separate branches were used to implement ea
 This site is hosted on Heroku. It is linked directly to the GitHub master branch and is deployed manually.
 
 The live site can be found [here](https://revu-webapp.herokuapp.com/).
+
+###### Demo Log In Details:
+email: test1@mail.com
+
+password: 1111
 
 ## Credits
 

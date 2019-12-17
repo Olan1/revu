@@ -221,6 +221,14 @@ nav {
     margin-right: 20px;
 }
 
+/*************** Flash Messages ***************/
+
+.flash {
+    font-size: 2rem;
+    letter-spacing: 4px;
+    color: red;
+}
+
 /*************** Forms ***************/
 
 #form {

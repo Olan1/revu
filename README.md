@@ -56,6 +56,8 @@ I would also like to give users the option to update and add more personal data,
 
 I would like to add the ability for users to comment on, like and/or rate each others reviews.
 
+The user agreement also needs to be filled with relevant content (currently Lorem Ipsum text).
+
 ## Testing
 
 ### Code Validation:
@@ -114,16 +116,17 @@ password: 1111
 ## Credits
 
 ### Content
-- All film info for Star Wars Episodes IV, V, and V was taken from Wikipedia and IMBD
-- The plots and reviews for Star Wars Episodes IV, V, and V were taken from IMBD
+- All film info for Star Wars Episodes IV was taken from [Wikipedia](https://en.wikipedia.org/wiki/Star_Wars_(film)) and [IMDB](https://www.imdb.com/title/tt0076759/):
+- All film info for Star Wars Episodes V was taken from [Wikipedia](https://en.wikipedia.org/wiki/The_Empire_Strikes_Back) and [IMDB](https://www.imdb.com/title/tt0080684/):
+- All film info for Star Wars Episodes VI was taken from [Wikipedia](https://en.wikipedia.org/wiki/Return_of_the_Jedi) and [IMDB](https://www.imdb.com/title/tt0086190/):
 
 ### Media
 - The images for Star Wars Episodes [IV](https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg), [V](https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/SW_-_Empire_Strikes_Back.jpg/220px-SW_-_Empire_Strikes_Back.jpg), and [VI](http://t0.gstatic.com/images?q=tbn:ANd9GcRnTSmH4ckpqTGuLeBlI6DEnAagQq1Oha9c8fDlm2SRbcpEKZK0) can be found at these sources.
 
 ### Acknowledgements
-- The log in/out functionality was taken from [this](https://www.youtube.com/watch?v=vVx1737auSE&list=WL&index=6&t=0s) tutorial
-- The flash functionality was taken from the [Message Flashing](https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/) documentation
-- The error and exception handling was taken from [this](https://docs.python.org/2/tutorial/errors.html) documentation
-- Other sources included PEP 8 and W3Schools
+- The log in/out functionality was sourced from [this YouTube tutorial](https://www.youtube.com/watch?v=vVx1737auSE&list=WL&index=6&t=0s)
+- The flash functionality was sourced from the [Message Flashing](https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/) documentation
+- The error and exception handling was sourced from [this](https://docs.python.org/2/tutorial/errors.html) documentation
+- Other sources included [PEP 8](https://www.python.org/dev/peps/pep-0008/) and [W3Schools](https://www.w3schools.com/)
 
 This site is for educational purposes.

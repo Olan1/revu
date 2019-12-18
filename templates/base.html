@@ -25,10 +25,10 @@
                 <!-- Navlinks -->
                 <ul class="right hide-on-med-and-down">
                     <li class="{% block active1 %} {% endblock %}">
-                        <a href="{{ url_for('home') }}">Browse</a>
+                        <a href="{{ url_for('home') }}">Home</a>
                     </li>
                     <li class="{% block active2 %} {% endblock %}">
-                        <a href="{{ url_for('new_revu') }}">New REVU</a>
+                        <a href="{{ url_for('new_revu') }}">Create REVU</a>
                     </li>
                     <li class="{% block active3 %} {% endblock %}">
                         <a href="{{ url_for('my_revus') }}">My REVUs</a>
@@ -40,10 +40,10 @@
                 <!-- Mobile Navlinks-->
                 <ul class="side-nav" id="mobile-demo">
                     <li class="{% block active5 %} {% endblock %}">
-                        <a href="{{ url_for('home') }}">Browse</a>
+                        <a href="{{ url_for('home') }}">Home</a>
                     </li>
                     <li class="{% block active6 %} {% endblock %}">
-                        <a href="{{ url_for('new_revu') }}">New REVU</a>
+                        <a href="{{ url_for('new_revu') }}">Create REVU</a>
                     </li>
                     <li class="{% block active7 %} {% endblock %}">
                         <a href="{{ url_for('my_revus') }}">My REVUs</a>
@@ -59,7 +59,7 @@
     <!-- Main Body -->
     <div class="container main-body">
         
-        <!-- Flash Messages -->
+        <!-- Display Flash Messages -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <ul class="center-align flash">
@@ -76,7 +76,7 @@
         <!-- Content -->
         {% block content %} {% endblock %}
         
-        <!-- Modal -->
+        <!-- Delete Account Modal -->
         <div id="myModal" class="myModal">
             <div class="modal-content">
                 <span class="closeModal">&times;</span>
@@ -88,7 +88,6 @@
             </div>
         </div>
         <!-- /Modal -->
-        
     </div>
 
     <!-- Footer -->

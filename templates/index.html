@@ -12,17 +12,21 @@
 
 <!-- Page Content -->
 {% block content %}
+<!-- Site Welcome Message and Description -->
 <h1 class="text-grey center-align mb-5">Welcome to REVU</h1>
 <h4 class="text-grey center-align mb-5">The Home of Film Reviews</h4>
 <h5 class="text-grey center-align mb-5">Create | Read | Update | Delete</h5>
 {% for review in reviews %}
 
+<!-- Review Link Section -->
 <a class="outer" href="{{ url_for('view_revu', review_id=review._id) }}">
     <div class="section center-align">
         <div class="row">
+            <!-- Film Image -->
             <div class="col s12 m4">
                 <img class="section-img" src="{{ review.img_url }}"></img>
             </div>
+            <!-- Film Facts -->
             <div class="col s12 m8 section-text">
                 <h3 class="inner text-green">{{ review.title }}</h3>
                 <hr class="hr-1 text-green">

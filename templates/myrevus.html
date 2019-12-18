@@ -14,12 +14,15 @@
 {% block content %}
 {% for review in reviews %}
 
+<!-- Review Link Section-->
 <a href="{{ url_for('view_revu', review_id=review._id) }}">
     <div class="section center-align outer">
         <div class="row">
+            <!-- Film Image -->
             <div class="col s12 m4">
                 <img class="section-img" src="{{ review.img_url }}"></img>
             </div>
+            <!-- Film Facts -->
             <div class="col s12 m6 section-text">
                 <h3 class="inner text-green">{{ review.title }}</h3>
                 <hr class="hr-1 text-green">
@@ -28,6 +31,7 @@
                 <p class="inner">{{ review.genre }}</p>
                 <p class="inner">Rated {{ review.rating }} / 5</p>
             </div>
+            <!-- Edit and Delete Buttons -->
             <div class="col s12 m2 section-text">
                 <a href="{{ url_for('edit_revu', revu_id=review._id) }}" class="waves-effect waves-light btn my-revus-btn edit">Edit</a>
                 <a href="{{ url_for('delete_revu', revu_id=review._id) }}" class="waves-effect waves-light btn my-revus-btn delete">Delete</a>

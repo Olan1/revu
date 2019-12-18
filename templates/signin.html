@@ -8,19 +8,23 @@
 <div id="form" class="col s12 m6 offset-m3 center-align">
     <h3 class="text-grey">Sign In</h3>
     <div class="row">
+        <!-- Form -->
         <form class="col s12" action="{{ url_for('sign_in') }}" method=POST>
             <div class="row">
+                <!-- Email -->
                 <div class="input-field col s12">
                     <input name="email" type="email" class="validate" required>
                     <label for="email">Email</label>
                 </div>
             </div>
+            <!-- Password -->
             <div class="row">
                 <div class="input-field col s12">
                     <input name="password" type="password" class="validate" required>
                     <label for="password">Password</label>
                 </div>
             </div>
+            <!-- Submit Form -->
             <button class="btn waves-effect waves-light" formmethod="POST" formaction="{{ url_for('sign_in') }}" type="submit">Submit
                 <i class="material-icons right">send</i>
             </button>
@@ -28,6 +32,7 @@
         <div class="divider"></div>
         <span>OR</span>
         <div class="divider"></div>
+        <!-- Link to Sign Up Page -->
         <a href="{{ url_for('sign_up') }}" class="btn waves-effect waves-light">Sign Up</a>
     </div>
 </div>

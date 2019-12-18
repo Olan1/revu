@@ -47,8 +47,8 @@ Users can create reviews, edit them, view both their work and others, and delete
 Users can only edit and delete reviews that are linked to their profile.
 
 All forms validate the data entered:
-- Sign up form ensures no empty fields, verifies email address, and ensures password has uppercase and lowercase letters, a digit, a special character, and is at least 8 characters long
-- The sign in page verifies that bothe the email address an password are in the database and are linked to the same user
+- The sign-up form ensures no empty fields, verifies email address and ensures password has uppercase and lowercase letters, a digit, a special character, and is at least 8 characters long
+- The sign-in page verifies that both the email address and password are in the database and are linked to the same user
 - The Edit/New REVU forms check for empty fields, valid URLs, fields requiring numeric values are numbers, and the rating falls within the specified range
 
 ### Features Left to Implement
@@ -80,9 +80,9 @@ It was tested by entering both the password and email correctly, the correct ema
 The correct email from one account and correct password from another was tested, and both values entered incorrectly was tested.
 It was also tested by removing the required attribute from the HTML inputs leaving blank values.
 
-The sign up page was tested by removing the required attribute from the HTML inputs and leaving blank values.
+The sign-up page was tested by removing the required attribute from the HTML inputs and leaving blank values.
 Multiple emails, both valid and invalid were tested.
-Passwords that satisfied none of the validation criteria, some of it and all of it, in different variations was tested.
+Passwords that satisfied none of the validation criteria, some of it and all of it, in different variations were tested.
 
 On the index page, all links were checked to see if they directed to the correct URL.
 The Sign Out link was tested to ensure that it ended the user's session.
@@ -96,11 +96,11 @@ Error and exception handling was used to validate the image URL, rating, run-tim
 The database was checked to verify that the data was being inserted correctly, and not inserting when an error was thrown.
 
 The My REVUs page was tested in the same manner as the index page.
-The edit button was checked to ensure that it linked to an update form with the correct info autofilled in the form input fields.
+The edit button was checked to ensure that it linked to an update form with the correct info auto-filled in the form input fields.
 The delete button was verified against the database to ensure the record was permanently deleted.
 
 The Edit REVU page was tested in the same manner as the New REVU page.
-The input fields were verified against the database to ensure the correct data was autofilled.
+The input fields were verified against the database to ensure the correct data was auto-filled.
 
 The sign out functionality was tested to ensure that it ended the user session and redirected to the login page.
 

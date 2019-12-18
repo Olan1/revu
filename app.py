@@ -32,14 +32,16 @@ def home():
 @app.route('/sign_in', methods=['POST'])
 def sign_in():
     """
-    If user email and password match database, initialize user session and render homepage
+    If user email and password match database, initialize user session and
+    render homepage
     
     Else flash error message and return to sign in page
     """
     login_user = mongo.db.users.find_one({ 'email': request.form['email']})
     
     if login_user:
-        if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
+        if bcrypt.hashpw(request.form['password'].encode('utf-8'),
+                        login_user['password']) == login_user['password']:
             session['user_email'] = request.form['email']
             return redirect(url_for('home'))
 
@@ -50,7 +52,8 @@ def sign_in():
 @app.route('/sign_up', methods=['POST', 'GET'])
 def sign_up():
     """
-    If request method is POST and form contents are valid, check if email is in database
+    If request method is POST and form contents are valid, check if email is in
+    database
     
     If email does not already exist in the database, encrypt the password,
     insert form data into database, initialise user session and render homepage
@@ -60,40 +63,49 @@ def sign_up():
     If request method is not POST, return sign up page
     """
     if request.method == 'POST':
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        email = request.form['email']
+        password = request.form['password']
+        
         # Check if form fields are empty
-        if not request.form['first_name'].strip() or not request.form['last_name'].strip() or not request.form['email'].strip() or not request.form['password'].strip():
+        if (not first_name.strip() or not last_name.strip() or
+                not email.strip() or not password.strip()):
             flash("Form fields cannot be empty")
             return redirect(url_for('sign_up'))
             
-        # Check if password secure  -   Source: https://stackoverflow.com/questions/16709638/checking-the-strength-of-a-password-how-to-check-conditions
-        if len(request.form['password']) < 8 or re.search(r"\d", request.form['password']) is None or re.search(r"[A-Z]", request.form['password']) is None:
-            flash("Password must be minimum 8 characters, contain 1 uppercase and 1 lowercase letter, 1 digit, and 1 special character")
-            return redirect(url_for('sign_up'))
-        elif re.search(r"[a-z]", request.form['password']) is None or re.search(r"[ @!#$%&'()*+,-./[\\\]^_`{|}~"+r'"]', request.form['password']) is None:
-            flash("Password must be minimum 8 characters, contain 1 uppercase and 1 lowercase letter, 1 digit, and 1 special character")
+        # Check if password secure
+        # Source: https://stackoverflow.com/questions/16709638/checking-the-strength-of-a-password-how-to-check-conditions
+        if (len(password) < 8 or re.search(r"\d", password) is None or
+                re.search(r"[A-Z]", password) is None or
+                re.search(r"[a-z]", password) is None or
+                re.search(r"[ @!#$%&'()*+,-./[\\\]^_`{|}~"+r'"]', password) is None):
+            flash("Password must contain minimum 8 characters,\
+                    1 uppercase and 1 lowercase letter, 1 digit,\
+                    and 1 special character")
             return redirect(url_for('sign_up'))
         
-        # Check for valid email address     -   Source: https://pypi.org/project/email-validator/
+        # Check for valid email address
+        # Source: https://pypi.org/project/email-validator/
         try:
-            validate_email(request.form['email'])
+            validate_email(email)
         except:
             flash("Please enter a valid email address")
             return redirect(url_for('sign_up'))
         
         users = mongo.db.users
-        existing_email = users.find_one({'email': request.form['email']})
+        existing_email = users.find_one({'email': email})
         
         if existing_email is None:
-            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
-            users.insert({'first': request.form['first_name'],
-                            'last': request.form['last_name'],
-                            'email': request.form['email'],
+            hashpass = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+            users.insert({'first': first_name,
+                            'last': last_name,
+                            'email': email,
                             'password': hashpass})
-            session['user_email'] = request.form['email']
+            session['user_email'] = email
             return redirect(url_for('home'))
             
         flash('An account already exists with that email address')
-
     return render_template('signup.html')
     
 # Sign Out
@@ -144,74 +156,70 @@ def view_revu(review_id):
     
 #Form Values Validation
 def form_validate():
+    """
+    If a form field throws an error, flash error message and increment error
+    counter
+    """
     errors = 0
+    title = request.form['title']
+    rating = request.form['rating']
+    img_url = request.form['img-url']
+    plot = request.form['plot']
+    review = request.form['review']
+    released = request.form['released']
+    director = request.form['director']
+    writers = request.form['writers']
+    producer = request.form['producer']
+    starring = request.form['starring']
+    run_time = request.form['run-time']
+    genre = request.form['genre']
+    budget = request.form['budget']
+    earned = request.form['earned']
     
     # Empty Form Fields Validation
-    """
-    If a form field is empty, flash error message and increment error counter
-    """
-    if not request.form['title'].strip() or not request.form['rating'].strip() or not request.form['img-url'].strip() or not request.form['plot'].strip():
-        flash("Form fields cannot be empty")
-        errors += 1
-    elif not request.form['review'].strip() or not request.form['released'].strip() or not request.form['director'].strip() or not request.form['writers'].strip():
-        flash("Form fields cannot be empty")
-        errors += 1
-    elif not request.form['producer'].strip() or not request.form['starring'].strip() or not request.form['run-time'].strip() or not request.form['genre'].strip():
-        flash("Form fields cannot be empty")
-        errors += 1
-    elif not request.form['budget'].strip() or not request.form['earned']:
+    if (not title.strip() or not rating.strip() or
+            not img_url.strip() or not plot.strip() or
+            not review.strip() or not released.strip() or
+            not director.strip() or not writers.strip() or
+            not producer.strip() or not starring.strip() or
+            not run_time.strip() or not genre.strip() or
+            not budget.strip() or not earned):
         flash("Form fields cannot be empty")
         errors += 1
         
-    # URL Validation    -   Source: https://stackoverflow.com/questions/3170231/how-can-i-check-if-a-url-exists-with-django-s-validators
-    """
-    If URL is not valid, flash error message and increment error counter
-    """
+    # URL Validation
+    # Source: https://stackoverflow.com/questions/3170231/how-can-i-check-if-a-url-exists-with-django-s-validators
     val = URLValidator()
     try:
-        val(request.form['img-url'])
+        val(img_url)
     except:
         flash("Please enter a valid URL")
         errors += 1
     
     # Rating Validation
-    """
-    If try block throws an error, form content is not a number
-    Flash error message and increment error counter
-    
-    If form content is a number, but is outside of range 0 - 5, flash error
-    message and increment error counter
-    """
+    # Must be a number between 0 - 5
     try:
-        float(request.form['rating'])
+        float(rating)
     except:
         flash("Rating must be a number")
         errors += 1
     else:
-        if float(request.form['rating']) > 5 or float(request.form['rating']) < 0:
+        if float(rating) > 5 or float(rating) < 0:
             flash("Rating must be between 0 and 5")
             errors += 1
             
     # Run-Time Validation
-    """
-    If form content is not a number, flash error message and increment error counter
-    """
+    # Must be a number
     try:
-        float(request.form['run-time'])
+        float(run_time)
     except:
         flash("Run-Time must be a number")
         errors += 1
         
     # Budget Validation
-    """
-    Remove all comas from form content
-    
-    If value is not a number, flash error message and increment error counter
-    """
-    budget = request.form['budget']
+    # Remove all comas and check if number
     if "," in budget:
         budget = budget.replace(",", "")
-    
     try:
         float(budget)
     except:
@@ -219,12 +227,7 @@ def form_validate():
         errors += 1
         
     # Run-Time Validation
-    """
-    Remove all comas from form content
-    
-    If value is not a number, flash error message and increment error counter
-    """
-    earned = request.form['earned']
+    # Remove all comas and check if number
     if "," in earned:
         earned = earned.replace(",", "")
     try:
@@ -232,12 +235,9 @@ def form_validate():
     except:
         flash("Earned must be a number")
         errors += 1
-        
-    """
-    If errors exist, return False
     
-    Else return True
-    """
+    # If an error exists, return False
+    # Else return True
     if errors > 0:
         return False
     return True
@@ -251,7 +251,8 @@ def new_revu():
     If form validation method returns no errors, insert form data into reviews
     collection in database and render My REVUs page
     
-    If form validation returns errors, flash error messages and render New REVU page
+    If form validation returns errors, flash error messages and render New REVU
+    page
     
     If request method is not POST, render New REVU page
     """
@@ -286,7 +287,8 @@ def my_revus():
     """
     Get current session users full name from database from database
     
-    Get all reviews in database where the author field matches the users full name
+    Get all reviews in database where the author field matches the users full
+    name
     
     Render My REVUs page and provide the users reviews as parameter
     """
@@ -299,7 +301,8 @@ def my_revus():
 @app.route('/edit_revu/<revu_id>')
 def edit_revu(revu_id):
     """
-    Render Edit REVU page and get specified review from database and feed as parameter
+    Render Edit REVU page and get specified review from database and feed as
+    parameter
     """
     return render_template('editrevu.html',
                             review=mongo.db.reviews.find_one(

@@ -70,11 +70,11 @@
             {% endif %}
         {% endwith %}
         
-        <!-- Searchbar -->
-        {% block searchbar %} {% endblock %}
-        
         <!-- Content -->
-        {% block content %} {% endblock %}
+        {% block content %}
+            <!-- Searchbar -->
+            {% block searchbar %} {% endblock %}
+        {% endblock %}
         
         <!-- Delete Account Modal -->
         <div id="myModal" class="myModal">

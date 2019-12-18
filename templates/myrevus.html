@@ -7,11 +7,13 @@
 {% block active3 %} active {% endblock %}
 {% block active7 %} active {% endblock %}
 
-<!-- Searchbar -->
-{% block searchbar %}<input type="text" id="searchBar" placeholder="Search for..." class="center-align">{% endblock %}
-
 <!-- Page Content -->
 {% block content %}
+
+<!-- Searchbar -->
+{% block searchbar %}<input type="text" id="searchBar" placeholder="Search titles, genres, directors, ratings..." class="center-align">{% endblock %}
+
+
 {% for review in reviews %}
 
 <!-- Review Link Section-->

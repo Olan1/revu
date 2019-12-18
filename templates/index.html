@@ -7,17 +7,17 @@
 {% block active1 %} active {% endblock %}
 {% block active5 %} active {% endblock %}
 
-<!-- Searchbar -->
-{% block searchbar %}<input type="text" id="searchBar" placeholder="Search for..." class="center-align">{% endblock %}
-
 <!-- Page Content -->
 {% block content %}
-<!-- Site Welcome Message and Description -->
-<h1 class="text-grey center-align mb-5">Welcome to REVU</h1>
-<h4 class="text-grey center-align mb-5">The Home of Film Reviews</h4>
-<h5 class="text-grey center-align mb-5">Create | Read | Update | Delete</h5>
-{% for review in reviews %}
 
+<!-- Site Welcome Message and Description -->
+<h1 class="text-grey center-align">Welcome to REVU</h1>
+<h4 class="text-grey center-align">The Home of Film Reviews</h4>
+
+<!-- Searchbar -->
+{% block searchbar %}<input type="text" id="searchBar" placeholder="Search titles, genres, directors, ratings..." class="center-align">{% endblock %}
+
+{% for review in reviews %}
 <!-- Review Link Section -->
 <a class="outer" href="{{ url_for('view_revu', review_id=review._id) }}">
     <div class="section center-align">

@@ -5,6 +5,7 @@ from bson.objectid import ObjectId
 import bcrypt
 from email_validator import validate_email
 from django.core.validators import URLValidator
+import re
 
 app = Flask(__name__)
 
@@ -64,9 +65,12 @@ def sign_up():
             flash("Form fields cannot be empty")
             return redirect(url_for('sign_up'))
             
-        # Check if password is less than 8 characters long
-        if len(request.form['password']) < 8:
-            flash("Password must be at least 8 characters long")
+        # Check if password secure  -   Source: https://stackoverflow.com/questions/16709638/checking-the-strength-of-a-password-how-to-check-conditions
+        if len(request.form['password']) < 8 or re.search(r"\d", request.form['password']) is None or re.search(r"[A-Z]", request.form['password']) is None:
+            flash("Password must be minimum 8 characters, contain 1 uppercase and 1 lowercase letter, 1 digit, and 1 special character")
+            return redirect(url_for('sign_up'))
+        elif re.search(r"[a-z]", request.form['password']) is None or re.search(r"[ !#$%&'()*+,-./[\\\]^_`{|}~"+r'"]', request.form['password']) is None:
+            flash("Password must be minimum 8 characters, contain 1 uppercase and 1 lowercase letter, 1 digit, and 1 special character")
             return redirect(url_for('sign_up'))
         
         # Check for valid email address     -   Source: https://pypi.org/project/email-validator/
@@ -159,7 +163,7 @@ def form_validate():
         flash("Form fields cannot be empty")
         errors += 1
         
-    # URL Validation
+    # URL Validation    -   Source: https://stackoverflow.com/questions/3170231/how-can-i-check-if-a-url-exists-with-django-s-validators
     """
     If URL is not valid, flash error message and increment error counter
     """

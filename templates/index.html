@@ -12,6 +12,9 @@
 
 <!-- Page Content -->
 {% block content %}
+<h1 class="text-grey center-align mb-5">Welcome to REVU</h1>
+<h4 class="text-grey center-align mb-5">The Home of Film Reviews</h4>
+<h5 class="text-grey center-align mb-5">Create | Read | Update | Delete</h5>
 {% for review in reviews %}
 
 <a class="outer" href="{{ url_for('view_revu', review_id=review._id) }}">

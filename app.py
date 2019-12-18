@@ -69,7 +69,7 @@ def sign_up():
         if len(request.form['password']) < 8 or re.search(r"\d", request.form['password']) is None or re.search(r"[A-Z]", request.form['password']) is None:
             flash("Password must be minimum 8 characters, contain 1 uppercase and 1 lowercase letter, 1 digit, and 1 special character")
             return redirect(url_for('sign_up'))
-        elif re.search(r"[a-z]", request.form['password']) is None or re.search(r"[ !#$%&'()*+,-./[\\\]^_`{|}~"+r'"]', request.form['password']) is None:
+        elif re.search(r"[a-z]", request.form['password']) is None or re.search(r"[ @!#$%&'()*+,-./[\\\]^_`{|}~"+r'"]', request.form['password']) is None:
             flash("Password must be minimum 8 characters, contain 1 uppercase and 1 lowercase letter, 1 digit, and 1 special character")
             return redirect(url_for('sign_up'))
         

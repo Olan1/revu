@@ -12,7 +12,7 @@ Click [here](https://revu-webapp.herokuapp.com/) for a demo...
 ###### Demo Log In Details:
 email: test1@mail.com
 
-password: 1111
+password: @123456Aa
 
 ## UX
 
@@ -46,17 +46,20 @@ Once logged in users can use the search bar feature to search reviews created by
 Users can create reviews, edit them, view both their work and others, and delete them.
 Users can only edit and delete reviews that are linked to their profile.
 
+All forms validate the data entered:
+- Sign up form ensures no empty fields, verifies email address, and ensures password has uppercase and lowercase letters, a digit, a special character, and is at least 8 characters long
+- The sign in page verifies that bothe the email address an password are in the database and are linked to the same user
+- The Edit/New REVU forms check for empty fields, valid URLs, fields requiring numeric values are numbers, and the rating falls within the specified range
+
 ### Features Left to Implement
 I would like to link the search bar directly to the database as opposed to sifting through data on the page.
 The current method works fine with a small number of users but would not scale well, and would also not work well in the case of pagination.
-
-Also, further form validation is required, such as ensuring a more secure password is picked and a valid URL is being entered.
 
 I would also like to give users the option to update and add more personal data, as well as display it in a user profile section.
 
 I would like to add the ability for users to comment on, like and/or rate each others reviews.
 
-The user agreement also needs to be filled with relevant content (currently Lorem Ipsum text).
+The user agreement also needs to be filled with relevant content as it currently it contains Lorem Ipsum text.
 
 ## Testing
 
@@ -70,15 +73,16 @@ The JavaScript code was validated using [JSHint](https://jshint.com/), [Code Bea
 The Python code was validated using [Extends Class](https://extendsclass.com/python-tester.html)
 
 ### UX Testing:
-Testing was carried out manually for this project, although error and exception handling was used for validating form data.
+Testing was carried out manually for this project. Error and exception handling was used for validating form data.
 
 The sign-in page was tested by entering a combination of passwords and email addresses into the form input fields.
-It was tested by entering both the password and email correctly, the correct email and incorrect password and vice versa.
+It was tested by entering both the password and email correctly, the correct email and incorrect password, and vice versa.
 The correct email from one account and correct password from another was tested, and both values entered incorrectly was tested.
-It was also tested by leaving blank values. If the values are left blank the form will not submit, it is, however, reliant on the HTML rendered on the page which can be altered using developer tools and therefore is not secure.
-The sign-up page was tested similarly. It has the same weakness with blank values.
-It also needs further validation on the email and the password strength.
-All links on both the sign up and sign in page were tested.
+It was also tested by removing the required attribute from the HTML inputs leaving blank values.
+
+The sign up page was tested by removing the required attribute from the HTML inputs and leaving blank values.
+Multiple emails, both valid and invalid were tested.
+Passwords that satisfied none of the validation criteria, some of it and all of it, in different variations was tested.
 
 On the index page, all links were checked to see if they directed to the correct URL.
 The Sign Out link was tested to ensure that it ended the user's session.
@@ -87,19 +91,20 @@ The review sections were checked to ensure they matched the database, in number 
 
 The REVU page was checked for each review to ensure the correct data was being rendered, and that it was being rendered correctly.
 
-The New REVU page was checked for all links working, to see if form data was being submitted correctly and if form validation was working.
-Error and exception handling was used to validate the rating, run-time, budget, and earnings form fields.
+The New REVU page was tested to see if form data was being submitted correctly and if form validation was working.
+Error and exception handling was used to validate the image URL, rating, run-time, budget, and earnings form fields.
 The database was checked to verify that the data was being inserted correctly, and not inserting when an error was thrown.
 
 The My REVUs page was tested in the same manner as the index page.
-The edit button was checked to ensure that it linked to an update form with the correct info pre-filled in the form input fields.
+The edit button was checked to ensure that it linked to an update form with the correct info autofilled in the form input fields.
 The delete button was verified against the database to ensure the record was permanently deleted.
 
 The Edit REVU page was tested in the same manner as the New REVU page.
+The input fields were verified against the database to ensure the correct data was autofilled.
 
 The sign out functionality was tested to ensure that it ended the user session and redirected to the login page.
 
-This site was tested on multiple screen sizes (4.5" to 27") and devices (iPhone 6, 7, 7+, X, iPad, iPad pro, laptop screens and monitors)
+This site was tested on multiple screen sizes (4.7" - 27") and devices (iPhone 6, 7, 7+, X, iPad, iPad pro, several laptop screens and monitors)
 
 ## Deployment
 GitHub was used for version control. Separate branches were used to implement each feature and merged with the master branch.
@@ -111,7 +116,7 @@ The live site can be found [here](https://revu-webapp.herokuapp.com/).
 ###### Demo Log In Details:
 email: test1@mail.com
 
-password: 1111
+password: @123456Aa
 
 ## Credits
 

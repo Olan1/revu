@@ -15,7 +15,7 @@
 
 <div class="row center-align">
     <!-- Form -->
-    <form class="col s12 mb-5">
+    <form id="revuForm" class="col s12 mb-5">
         <!-- Film Title -->
         <div class="row">
             <div class="input-field col s12">
@@ -115,7 +115,7 @@
             </div>
         </div>
         <!-- Submit Form -->
-        <button class="btn waves-effect waves-light" formmethod="POST" formaction="{{ url_for('new_revu') }}" type="submit">Submit
+        <button id="submitBtn" class="btn waves-effect waves-light" formmethod="POST" formaction="{{ url_for('new_revu') }}" type="submit">Submit
             <i class="material-icons right">send</i>
         </button>
     </form>

@@ -4,6 +4,7 @@ $(".button-collapse").sideNav();
 // Search users in search bar
 $("#searchBar").keyup(() => {
     search();
+    noResultsFound();
 });
 
 // Call Delete User Modal
@@ -45,6 +46,26 @@ function search() {
         else {
             x[i].style.display = "block";
         }
+    }
+}
+
+// No Search Results Found
+function noResultsFound() {
+    let x = document.getElementsByClassName('outer');
+    let z = true;
+    // If no review sections are found, z is true
+    for (let i = 0; i < x.length; i++) {
+        if (x[i].style.display == 'block') {
+            z = false;
+        }
+    }
+    // If z is true, display "No results found" to user
+    if (z === true && $(".no-result").length === 0) {
+        $(".main-body").append(`<h1 class="center-align text-grey no-result">No results found</h1>`);
+    }
+    // If z is false, remove "No results found" from screen
+    else if (z === false) {
+        $(".no-result").remove();
     }
 }
 

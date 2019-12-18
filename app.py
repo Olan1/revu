@@ -3,6 +3,8 @@ from flask import Flask, render_template, redirect, request, url_for, session, f
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 import bcrypt
+from email_validator import validate_email
+from django.core.validators import URLValidator
 
 app = Flask(__name__)
 
@@ -47,7 +49,7 @@ def sign_in():
 @app.route('/sign_up', methods=['POST', 'GET'])
 def sign_up():
     """
-    If request method is POST, check if email is in database
+    If request method is POST and form contents are valid, check if email is in database
     
     If email does not already exist in the database, encrypt the password,
     insert form data into database, initialise user session and render homepage
@@ -57,6 +59,23 @@ def sign_up():
     If request method is not POST, return sign up page
     """
     if request.method == 'POST':
+        # Check if form fields are empty
+        if not request.form['first_name'].strip() or not request.form['last_name'].strip() or not request.form['email'].strip() or not request.form['password'].strip():
+            flash("Form fields cannot be empty")
+            return redirect(url_for('sign_up'))
+            
+        # Check if password is less than 8 characters long
+        if len(request.form['password']) < 8:
+            flash("Password must be at least 8 characters long")
+            return redirect(url_for('sign_up'))
+        
+        # Check for valid email address     -   Source: https://pypi.org/project/email-validator/
+        try:
+            validate_email(request.form['email'])
+        except:
+            flash("Please enter a valid email address")
+            return redirect(url_for('sign_up'))
+        
         users = mongo.db.users
         existing_email = users.find_one({'email': request.form['email']})
         
@@ -122,6 +141,35 @@ def view_revu(review_id):
 #Form Values Validation
 def form_validate():
     errors = 0
+    
+    # Empty Form Fields Validation
+    """
+    If a form field is empty, flash error message and increment error counter
+    """
+    if not request.form['title'].strip() or not request.form['rating'].strip() or not request.form['img-url'].strip() or not request.form['plot'].strip():
+        flash("Form fields cannot be empty")
+        errors += 1
+    elif not request.form['review'].strip() or not request.form['released'].strip() or not request.form['director'].strip() or not request.form['writers'].strip():
+        flash("Form fields cannot be empty")
+        errors += 1
+    elif not request.form['producer'].strip() or not request.form['starring'].strip() or not request.form['run-time'].strip() or not request.form['genre'].strip():
+        flash("Form fields cannot be empty")
+        errors += 1
+    elif not request.form['budget'].strip() or not request.form['earned']:
+        flash("Form fields cannot be empty")
+        errors += 1
+        
+    # URL Validation
+    """
+    If URL is not valid, flash error message and increment error counter
+    """
+    val = URLValidator()
+    try:
+        val(request.form['img-url'])
+    except:
+        flash("Please enter a valid URL")
+        errors += 1
+    
     # Rating Validation
     """
     If try block throws an error, form content is not a number

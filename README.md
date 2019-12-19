@@ -50,6 +50,7 @@ All forms validate the data entered:
 - The sign-up form ensures no empty fields, verifies email address and ensures password has uppercase and lowercase letters, a digit, a special character, and is at least 8 characters long
 - The sign-in page verifies that both the email address and password are in the database and are linked to the same user
 - The Edit/New REVU forms check for empty fields, valid URLs, fields requiring numeric values are numbers, and the rating falls within the specified range
+- Local storage is used to auto-fill form data when invalid values are entered
 
 ### Features Left to Implement
 I would like to link the search bar directly to the database as opposed to sifting through data on the page.
@@ -94,6 +95,7 @@ The REVU page was checked for each review to ensure the correct data was being r
 The New REVU page was tested to see if form data was being submitted correctly and if form validation was working.
 Error and exception handling was used to validate the image URL, rating, run-time, budget, and earnings form fields.
 The database was checked to verify that the data was being inserted correctly, and not inserting when an error was thrown.
+When the form validation threw an error, the form textarea values were verified to contain the correct auto-filled data, and that no data was auto-filled if the user navigated away from the New REVU page.
 
 The My REVUs page was tested in the same manner as the index page.
 The edit button was checked to ensure that it linked to an update form with the correct info auto-filled in the form input fields.

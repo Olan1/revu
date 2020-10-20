@@ -22,7 +22,7 @@ The functional requirements for this project are:
 3. The ability for users to read other users content
 4. The ability for users to be able to search content
 
-### Wireframes:
+### Wireframes: 
 Click [here](https://github.com/Olan1/revu/tree/master/wireframes) for the wireframe designs.
 
 ## Technologies
